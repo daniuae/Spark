@@ -1,0 +1,40 @@
+SPARK Basics
+• What is Spark?
+• History of Spark
+• Spark Architecture
+• Spark Shell
+Working with RDDs in Spark
+• RDD Basics
+• Creating RDDs in Spark.
+• RDD Operations.
+• Passing Functions to Spark.
+• Transformations and Actions in Spark
+• Spark RDD Persistence
+Working with Key/Value Pairs
+• Pair RDDs
+• Transformations on Pair RDDs
+• Actions Available on Pair RDDs.
+• Data Partitioning (Advanced)
+• Example: PageRank
+• Loading and Saving the Data.
+Spark Advanced
+• Accumulators
+• Broadcast Variables 
+• Piping to External Programs
+• Numeric RDD Operations
+• Spark Runtime Architecture
+• Deploying Applications
+SPARK with SQL
+• Spark SQL Overview
+• Spark SQL Architecture
+• Catalyst
+• Plan Optimisation & Execution
+• ROW API
+Spark streaming
+• What is Spark streaming?
+• Spark streaming : How it works ?
+• Spark DStreams
+• A Twitter example
+• Fault-tolerance
+• Stateful Stream Processing
+pyspark introduction
