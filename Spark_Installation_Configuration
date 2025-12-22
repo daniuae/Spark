@@ -1,0 +1,82 @@
+############################################################
+# STEP 1: INSTALL JAVA (MANDATORY)
+############################################################
+# 1. Download and install Java JDK 8 or 11 (recommended: JDK 11)
+#    https://adoptium.net/temurin/releases/
+# 2. Set JAVA_HOME (example path)
+#    C:\Program Files\Eclipse Adoptium\jdk-11.0.xx
+
+# Add to Environment Variables:
+#   JAVA_HOME = C:\Program Files\Eclipse Adoptium\jdk-11.0.xx
+#   PATH += %JAVA_HOME%\bin
+
+# Verify
+java -version
+
+
+############################################################
+# STEP 2: CREATE PYTHON VIRTUAL ENV (OPTIONAL BUT RECOMMENDED)
+############################################################
+python -m venv pyspark_env
+pyspark_env\Scripts\activate
+
+python --version
+
+
+############################################################
+# STEP 3: INSTALL PYSPARK 3.5.6 + JUPYTER
+############################################################
+pip install pyspark==3.5.6
+pip install jupyter notebook ipykernel
+
+
+############################################################
+# STEP 4: SET SPARK ENV VARIABLES (WINDOWS)
+############################################################
+# Find PySpark location
+# Example:
+# C:\Users\<your_user>\pyspark_env\Lib\site-packages\pyspark
+
+# Set these in Environment Variables:
+#   SPARK_HOME = C:\Users\<your_user>\pyspark_env\Lib\site-packages\pyspark
+#   PYSPARK_PYTHON = C:\Users\<your_user>\pyspark_env\Scripts\python.exe
+
+# Add to PATH:
+#   %SPARK_HOME%\bin
+
+# Verify
+spark-submit --version
+
+
+############################################################
+# STEP 5: REGISTER KERNEL FOR JUPYTER
+############################################################
+python -m ipykernel install --user --name pyspark356 --display-name "PySpark 3.5.6"
+
+
+############################################################
+# STEP 6: LAUNCH JUPYTER NOTEBOOK
+############################################################
+jupyter notebook
+
+
+############################################################
+# STEP 7: PYSPARK CODE (RUN INSIDE JUPYTER CELL)
+############################################################
+from pyspark.sql import SparkSession
+
+spark = SparkSession.builder \
+    .appName("PySpark Jupyter Windows") \
+    .master("local[*]") \
+    .getOrCreate()
+
+spark
+
+# Test
+df = spark.createDataFrame(
+    [(1, "AK"), (2, "Spark"), (3, "PySpark")],
+    ["id", "name"]
+)
+
+df.show()
+
